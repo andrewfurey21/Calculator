@@ -47,7 +47,7 @@ public class Calculator {
 					System.err.println("ERROR: Missing ) in " + input);
 					return 0;
 				}
-				double ans = roundOff(calculate(bracketSequence), 5);
+				double ans = calculate(bracketSequence);
 				try {
 					String replacement = '(' + bracketSequence + ')';
 					input = input.replace(replacement, "" + ans);
@@ -66,8 +66,7 @@ public class Calculator {
 					ops.add(operators[j]);
 					if (!currentNumber.equals("")) {
 						try {
-							numbers.add(roundOff(Double.parseDouble(currentNumber), DECIMAL_PLACES));
-
+							numbers.add(Double.parseDouble(currentNumber));
 						} catch (Exception e) {
 							System.err.println("ERROR: unknown double: " + currentNumber);
 						}
